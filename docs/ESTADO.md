@@ -6,7 +6,7 @@ Archivo de traspaso entre Claude y Codex. **Quien empieza una sesión lo lee pri
 
 - **En curso:** nada. Entregas 01 y 02 en revisión.
 - **Quién tiene la tarea:** nadie.
-- **Revisión pendiente:** Entrega 01 (PR #1) y Entrega 02 (PR de `entrega-02-reporte-diario`, que se aprueba después del #1).
+- **Revisión pendiente:** Entrega 01 (PR #1) y Entrega 02 (PR #9, que se aprueba después del #1).
 - **Siguiente:** Entrega 03, estado de pago mensual (issue #3). Falta su especificación; para escribirla sirve un EP real del piloto.
 
 ## Entregas del MVP
@@ -14,7 +14,7 @@ Archivo de traspaso entre Claude y Codex. **Quien empieza una sesión lo lee pri
 | # | Entrega | Estado | Rama / PR |
 | --- | --- | --- | --- |
 | 01 | Mandantes, contratos e itemizado | En revisión | `entrega-01-contrato` / PR #1 |
-| 02 | Reporte diario con fotos, horas-persona y horas de equipo, firmado por el mandante | En revisión | `entrega-02-reporte-diario` |
+| 02 | Reporte diario con fotos, horas-persona y horas de equipo, firmado por el mandante | En revisión | `entrega-02-reporte-diario` / PR #9 |
 | 03 | Estado de pago mensual con retención, estados y PDF por mandante | Pendiente | — |
 | 04 | Carpeta laboral mensual (F30-1, cotizaciones, E-200) con semáforo en el EP | Pendiente | — |
 | 05 | Bóveda documental con vencimientos y avisos | Pendiente | — |
