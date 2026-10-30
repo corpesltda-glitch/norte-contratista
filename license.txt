@@ -1,0 +1,6 @@
+Copyright (c) 2026 Norte Inteligente SpA. Todos los derechos reservados.
+
+Este software es propiedad de Norte Inteligente SpA. No se permite copiarlo,
+distribuirlo, modificarlo ni usarlo sin autorización escrita del titular.
+
+Se apoya en Frappe Framework (licencia MIT), que conserva su propia licencia.
