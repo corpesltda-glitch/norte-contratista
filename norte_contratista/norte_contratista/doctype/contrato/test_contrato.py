@@ -145,7 +145,7 @@ class IntegrationTestContrato(IntegrationTestCase):
 		self.assertEqual(contrato.monto_total, 1001)
 
 	def test_c12_medio_peso_resultado_de_multiplicacion(self):
-		# En punto flotante 1,15 × 50 = 57,4999… y 0,29 × 50 = 14,4999…: deben subir a 58 y 15.
+		# En punto flotante 1,15 por 50 = 57,4999… y 0,29 por 50 = 14,4999…: deben subir a 58 y 15.
 		for cantidad, precio, esperado in ((1.15, 50, 58), (0.29, 50, 15)):
 			with self.subTest(cantidad=cantidad, precio=precio):
 				contrato = nuevo_contrato([("1", "Servicio", "gl", cantidad, precio)])

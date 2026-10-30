@@ -1,7 +1,7 @@
 """Cálculo y redondeo de montos como se hace comercialmente en Chile.
 
 Todo se calcula con Decimal: multiplicar o sumar en punto flotante produce errores
-como 1,15 × 50 = 57,4999… que, al redondear, cobran un peso menos.
+como 1,15 por 50 = 57,4999… que, al redondear, cobran un peso menos.
 """
 
 from decimal import ROUND_HALF_UP, Decimal
@@ -26,7 +26,7 @@ def redondear(valor: float | int | str | Decimal | None, precision: int) -> floa
 
 
 def multiplicar(cantidad, precio_unitario, precision: int) -> float:
-	"""Total de una línea: cantidad × precio unitario, redondeado sin errores de punto flotante."""
+	"""Total de una línea: cantidad por precio unitario, redondeado sin errores de punto flotante."""
 	return redondear(a_decimal(cantidad) * a_decimal(precio_unitario), precision)
 
 
