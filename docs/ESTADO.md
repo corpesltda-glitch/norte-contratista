@@ -34,6 +34,11 @@ Archivo de traspaso entre Claude y Codex. **Quien empieza una sesión lo lee pri
 
 ## Bitácora (lo más reciente arriba)
 
+- **2026-10-29 · Claude:** Codex revisó el PR #1 y encontró un P1: 1,15 × $50 daba $57 en vez de $58 por
+  el punto flotante. Corregido con Decimal (`multiplicar` y `sumar` en `utils/montos.py`), con prueba nueva;
+  C8 ahora prueba los cuatro valores editables y el CI quedó fijado a Frappe `version-16`. La corrección
+  también está en la rama de la Entrega 02. PR #1 y #9 en verde (22 y 44 pruebas).
+
 - **2026-10-29 · Claude:** Entrega 02 lista. Reporte Diario con avance por partida (acumulado y aviso si
   supera lo contratado), personal por cargo, equipos, fotos, estados Borrador → Revisado → Enviado →
   Firmado (quien llena no revisa; firmado exige copia y fecha, y queda bloqueado), formato de impresión
