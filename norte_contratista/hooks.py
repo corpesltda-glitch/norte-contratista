@@ -97,7 +97,7 @@ app_license = "Propietaria"
 
 before_install = "norte_contratista.install.before_install"
 after_migrate = "norte_contratista.install.after_migrate"
-# after_install = "norte_contratista.install.after_install"
+after_install = "norte_contratista.install.after_install"
 
 # Uninstallation
 # ------------

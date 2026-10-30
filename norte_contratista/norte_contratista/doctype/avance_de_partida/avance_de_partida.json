@@ -1,0 +1,98 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_rename": 1,
+ "creation": "2026-10-30 06:30:51.657086",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item",
+  "descripcion",
+  "unidad",
+  "cantidad",
+  "acumulado",
+  "cantidad_contratada",
+  "excede_contrato",
+  "comentario"
+ ],
+ "fields": [
+  {
+   "columns": 1,
+   "fieldname": "item",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "\u00cdtem",
+   "reqd": 1
+  },
+  {
+   "columns": 3,
+   "fieldname": "descripcion",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Descripci\u00f3n",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "unidad",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Unidad",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "cantidad",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Avance del d\u00eda",
+   "reqd": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "acumulado",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Acumulado a la fecha",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cantidad_contratada",
+   "fieldtype": "Float",
+   "label": "Cantidad contratada",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "default": "0",
+   "fieldname": "excede_contrato",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Excede lo contratado",
+   "read_only": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "comentario",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Comentario"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-10-30 06:30:51.657086",
+ "modified_by": "Administrator",
+ "module": "Norte Contratista",
+ "name": "Avance de Partida",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
