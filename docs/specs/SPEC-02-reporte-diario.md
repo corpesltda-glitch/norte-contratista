@@ -55,3 +55,4 @@ Fuera de esta entrega: modo sin conexión, app instalable en el celular, formato
 | R14 | Un reporte Enviado al mandante | Se marca Firmado sin copia firmada adjunta o sin fecha de firma | Se rechaza |
 | R15 | Un reporte Firmado por el mandante | Se intenta modificar | Se rechaza |
 | R16 | Un reporte con avances | Se imprime | El formato muestra contrato, fecha, avances y los espacios de firma, incluido el del mandante |
+| R17 | Un sitio recién instalado | Se muestran números y fechas | Salen en formato chileno: 3.000,50 y 28-10-2026, con hora de Santiago |

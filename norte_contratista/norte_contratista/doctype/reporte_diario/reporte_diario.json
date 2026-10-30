@@ -1,0 +1,277 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_rename": 1,
+ "autoname": "RD-.YYYY.-.#####",
+ "creation": "2026-10-30 06:30:51.893869",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_datos",
+  "contrato",
+  "mandante",
+  "faena",
+  "responsable",
+  "column_break_datos",
+  "fecha",
+  "turno",
+  "estado",
+  "revisado_por",
+  "fecha_revision",
+  "section_avance",
+  "avances",
+  "section_personal",
+  "personal",
+  "total_horas_persona",
+  "section_equipos",
+  "equipos",
+  "total_horas_operativas",
+  "column_break_equipos",
+  "total_horas_espera",
+  "section_fotos",
+  "fotos",
+  "section_observaciones",
+  "observaciones",
+  "section_firma",
+  "firmante_mandante",
+  "fecha_firma_mandante",
+  "column_break_firma",
+  "copia_firmada"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_datos",
+   "fieldtype": "Section Break",
+   "label": "Datos del reporte"
+  },
+  {
+   "fieldname": "contrato",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Contrato",
+   "options": "Contrato",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "contrato.mandante",
+   "fieldname": "mandante",
+   "fieldtype": "Link",
+   "label": "Mandante",
+   "options": "Mandante",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "contrato.faena",
+   "fieldname": "faena",
+   "fieldtype": "Data",
+   "label": "Faena",
+   "read_only": 1
+  },
+  {
+   "fieldname": "responsable",
+   "fieldtype": "Data",
+   "label": "Responsable del reporte"
+  },
+  {
+   "fieldname": "column_break_datos",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "fecha",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Fecha",
+   "reqd": 1
+  },
+  {
+   "default": "D\u00eda",
+   "fieldname": "turno",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Turno",
+   "options": "D\u00eda\nNoche"
+  },
+  {
+   "default": "Borrador",
+   "fieldname": "estado",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Estado",
+   "options": "Borrador\nRevisado\nEnviado al mandante\nFirmado por el mandante"
+  },
+  {
+   "fieldname": "revisado_por",
+   "fieldtype": "Link",
+   "label": "Revisado por",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "fecha_revision",
+   "fieldtype": "Datetime",
+   "label": "Fecha de revisi\u00f3n",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_avance",
+   "fieldtype": "Section Break",
+   "label": "Avance por partida"
+  },
+  {
+   "fieldname": "avances",
+   "fieldtype": "Table",
+   "label": "Avances",
+   "options": "Avance de Partida"
+  },
+  {
+   "fieldname": "section_personal",
+   "fieldtype": "Section Break",
+   "label": "Personal"
+  },
+  {
+   "fieldname": "personal",
+   "fieldtype": "Table",
+   "label": "Personal por cargo",
+   "options": "Personal del Reporte"
+  },
+  {
+   "bold": 1,
+   "fieldname": "total_horas_persona",
+   "fieldtype": "Float",
+   "label": "Total horas-persona",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_equipos",
+   "fieldtype": "Section Break",
+   "label": "Equipos"
+  },
+  {
+   "fieldname": "equipos",
+   "fieldtype": "Table",
+   "label": "Equipos",
+   "options": "Equipo del Reporte"
+  },
+  {
+   "bold": 1,
+   "fieldname": "total_horas_operativas",
+   "fieldtype": "Float",
+   "label": "Total horas operativas",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_equipos",
+   "fieldtype": "Column Break"
+  },
+  {
+   "bold": 1,
+   "fieldname": "total_horas_espera",
+   "fieldtype": "Float",
+   "label": "Total horas en espera",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_fotos",
+   "fieldtype": "Section Break",
+   "label": "Fotos"
+  },
+  {
+   "fieldname": "fotos",
+   "fieldtype": "Table",
+   "label": "Fotos",
+   "options": "Foto del Reporte"
+  },
+  {
+   "fieldname": "section_observaciones",
+   "fieldtype": "Section Break",
+   "label": "Observaciones"
+  },
+  {
+   "fieldname": "observaciones",
+   "fieldtype": "Small Text",
+   "label": "Observaciones"
+  },
+  {
+   "description": "Se completa cuando el mandante devuelve el reporte firmado.",
+   "fieldname": "section_firma",
+   "fieldtype": "Section Break",
+   "label": "Firma del mandante"
+  },
+  {
+   "fieldname": "firmante_mandante",
+   "fieldtype": "Data",
+   "label": "Firmado por (mandante)"
+  },
+  {
+   "fieldname": "fecha_firma_mandante",
+   "fieldtype": "Date",
+   "label": "Fecha de firma"
+  },
+  {
+   "fieldname": "column_break_firma",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "copia_firmada",
+   "fieldtype": "Attach",
+   "label": "Copia firmada"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-30 06:30:51.893869",
+ "modified_by": "Administrator",
+ "module": "Norte Contratista",
+ "name": "Reporte Diario",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrador de Contratos",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Supervisor de Terreno",
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "fecha",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "contrato",
+ "track_changes": 1
+}

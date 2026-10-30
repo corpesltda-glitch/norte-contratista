@@ -9,7 +9,7 @@ carpeta laboral, documentos con vencimiento, garantías y retenciones, y datos d
 | Entrega | Qué incluye | Estado |
 | --- | --- | --- |
 | 01 | Mandantes, contratos e itemizado, con validación de RUT y redondeo comercial | Lista para revisar |
-| 02 | Reporte diario de avance con fotos y horas-persona | Especificación en borrador |
+| 02 | Reporte diario con avance por partida, personal, equipos, fotos y formato para firma del mandante | Lista para revisar |
 | 03 | Estado de pago mensual con retención y PDF por mandante | Pendiente |
 
 Las especificaciones de cada entrega están en [`docs/specs/`](docs/specs/).
