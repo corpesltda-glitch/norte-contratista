@@ -34,8 +34,9 @@ pruebas, capturas y la lista de revisión, no leyendo código.
 - **Nada fijo en el código que dependa del contrato:** porcentajes de retención y garantía, multas,
   reajustes y plazos son campos del Contrato. Los valores por defecto (5 % retención, 3 % garantía,
   10 % tope de multas, 5 días hábiles de aprobación) son solo sugerencias editables.
-- **Montos:** usar `frappe.utils.flt` con la precisión del campo; los totales se calculan en el
-  servidor (`validate`), nunca solo en el navegador. Los pesos chilenos no llevan decimales.
+- **Montos:** redondear siempre con `norte_contratista.utils.montos.redondear` y la precisión de
+  `precision_moneda` (redondeo comercial: el medio sube). Los totales se calculan en el servidor
+  (`validate`); el JavaScript solo los muestra mientras se escribe. Los pesos chilenos no llevan decimales.
 - **Idioma:** etiquetas, mensajes y documentación en español de Chile. Nombres de campos en
   `snake_case` y en español sin tildes (`precio_unitario`, `fecha_termino`).
 - **PDF:** solo formatos de impresión HTML/Jinja (los formatos clásicos dejan de funcionar en v17).
@@ -56,9 +57,9 @@ En GitHub corren solas con cada PR (`.github/workflows/ci.yml`).
 ## Code Review Rules
 
 ### Montos y cálculos
-Marcar cualquier cálculo de montos (totales de partidas, EP, retenciones, multas) que no use
-`flt` con precisión, que se calcule solo en JavaScript, o que use un porcentaje fijo en el código
-en vez del campo del Contrato. Un error de un peso en un EP es un rechazo del mandante.
+Marcar cualquier cálculo de montos (totales de partidas, EP, retenciones, multas) que no pase por
+`redondear` con `precision_moneda`, que se calcule solo en JavaScript, o que use un porcentaje fijo
+en el código en vez del campo del Contrato. Un error de un peso en un EP es un rechazo del mandante.
 
 ### Permisos y datos
 Marcar `ignore_permissions=True`, `allow_guest=True`, SQL armado con texto del usuario, o datos
