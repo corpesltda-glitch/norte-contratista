@@ -6,7 +6,7 @@ from frappe import _
 from frappe.model.document import Document
 from frappe.utils import date_diff, flt, getdate
 
-from norte_contratista.utils.montos import precision_moneda, redondear
+from norte_contratista.utils.montos import multiplicar, precision_moneda, sumar
 
 PORCENTAJES = (
 	("porcentaje_retencion", "La retención"),
@@ -49,11 +49,9 @@ class Contrato(Document):
 
 	def calcular_totales(self):
 		precision = precision_moneda(self.moneda)
-		monto_total = 0
 		for partida in self.partidas:
-			partida.total = redondear(flt(partida.cantidad) * flt(partida.precio_unitario), precision)
-			monto_total += partida.total
-		self.monto_total = redondear(monto_total, precision)
+			partida.total = multiplicar(flt(partida.cantidad), flt(partida.precio_unitario), precision)
+		self.monto_total = sumar((partida.total for partida in self.partidas), precision)
 
 	def validar_estado(self):
 		if self.estado == "Vigente" and not self.partidas:

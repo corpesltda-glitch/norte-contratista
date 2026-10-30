@@ -109,9 +109,18 @@ class IntegrationTestContrato(IntegrationTestCase):
 		self.assertEqual(contrato.moneda, "CLP")
 
 	def test_c8_valores_por_defecto_son_editables(self):
-		contrato = nuevo_contrato(ITEMIZADO_BASE, porcentaje_retencion=10)
+		cambios = {
+			"porcentaje_retencion": 10,
+			"porcentaje_garantia": 5,
+			"tope_multas": 15,
+			"dias_aprobacion_ep": 10,
+		}
+		contrato = nuevo_contrato(ITEMIZADO_BASE, **cambios)
 		contrato.insert()
-		self.assertEqual(contrato.porcentaje_retencion, 10)
+		guardado = frappe.get_doc("Contrato", contrato.name)
+		for campo, valor in cambios.items():
+			with self.subTest(campo=campo):
+				self.assertEqual(guardado.get(campo), valor)
 
 	def test_c9_vigente_sin_itemizado(self):
 		contrato = nuevo_contrato(estado="Vigente")
@@ -134,6 +143,16 @@ class IntegrationTestContrato(IntegrationTestCase):
 		contrato = nuevo_contrato([("1", "Servicio", "gl", 1, 1000.5)])
 		contrato.insert()
 		self.assertEqual(contrato.monto_total, 1001)
+
+	def test_c12_medio_peso_resultado_de_multiplicacion(self):
+		# En punto flotante 1,15 × 50 = 57,4999… y 0,29 × 50 = 14,4999…: deben subir a 58 y 15.
+		for cantidad, precio, esperado in ((1.15, 50, 58), (0.29, 50, 15)):
+			with self.subTest(cantidad=cantidad, precio=precio):
+				contrato = nuevo_contrato([("1", "Servicio", "gl", cantidad, precio)])
+				contrato.insert()
+				guardado = frappe.get_doc("Contrato", contrato.name)
+				self.assertEqual(guardado.partidas[0].total, esperado)
+				self.assertEqual(guardado.monto_total, esperado)
 
 	def test_c12_uf_con_dos_decimales(self):
 		contrato = nuevo_contrato([("1", "Servicio", "gl", 0.5, 20.25)], moneda="UF")

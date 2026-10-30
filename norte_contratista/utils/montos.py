@@ -1,4 +1,8 @@
-"""Redondeo de montos como se hace comercialmente en Chile."""
+"""Cálculo y redondeo de montos como se hace comercialmente en Chile.
+
+Todo se calcula con Decimal: multiplicar o sumar en punto flotante produce errores
+como 1,15 × 50 = 57,4999… que, al redondear, cobran un peso menos.
+"""
 
 from decimal import ROUND_HALF_UP, Decimal
 
@@ -10,11 +14,22 @@ def precision_moneda(moneda: str | None) -> int:
 	return PRECISION_POR_MONEDA.get(moneda or "CLP", 2)
 
 
-def redondear(valor: float | int | None, precision: int) -> float:
-	"""Redondea al entero o decimal más cercano; el medio sube (1.000,5 -> 1.001).
+def a_decimal(valor: float | int | str | None) -> Decimal:
+	"""Convierte el número tal como se escribió (1.15 -> Decimal('1.15'))."""
+	return Decimal(str(valor or 0))
 
-	Se usa Decimal para no depender del redondeo bancario de Python ni de la
-	configuración del sitio.
-	"""
+
+def redondear(valor: float | int | str | Decimal | None, precision: int) -> float:
+	"""Redondea al entero o decimal más cercano; el medio sube (1.000,5 -> 1.001)."""
 	cuantizador = Decimal(1).scaleb(-precision)
-	return float(Decimal(str(valor or 0)).quantize(cuantizador, rounding=ROUND_HALF_UP))
+	return float(a_decimal(valor).quantize(cuantizador, rounding=ROUND_HALF_UP))
+
+
+def multiplicar(cantidad, precio_unitario, precision: int) -> float:
+	"""Total de una línea: cantidad × precio unitario, redondeado sin errores de punto flotante."""
+	return redondear(a_decimal(cantidad) * a_decimal(precio_unitario), precision)
+
+
+def sumar(valores, precision: int) -> float:
+	"""Suma montos sin errores de punto flotante y redondea el resultado."""
+	return redondear(sum((a_decimal(v) for v in valores), Decimal(0)), precision)
