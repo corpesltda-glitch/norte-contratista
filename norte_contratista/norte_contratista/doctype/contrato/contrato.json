@@ -1,0 +1,251 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:numero_contrato",
+ "creation": "2026-10-30 04:47:27.249952",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_datos",
+  "numero_contrato",
+  "nombre_contrato",
+  "mandante",
+  "faena",
+  "column_break_datos",
+  "estado",
+  "modalidad",
+  "moneda",
+  "administrador_mandante",
+  "section_plazo",
+  "fecha_inicio",
+  "fecha_termino",
+  "column_break_plazo",
+  "plazo_dias",
+  "section_condiciones",
+  "porcentaje_retencion",
+  "porcentaje_garantia",
+  "tope_multas",
+  "column_break_condiciones",
+  "reajuste",
+  "dias_aprobacion_ep",
+  "section_itemizado",
+  "partidas",
+  "monto_total",
+  "section_observaciones",
+  "observaciones"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_datos",
+   "fieldtype": "Section Break",
+   "label": "Datos del contrato"
+  },
+  {
+   "fieldname": "numero_contrato",
+   "fieldtype": "Data",
+   "label": "N\u00b0 de contrato",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "nombre_contrato",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Nombre del contrato",
+   "reqd": 1
+  },
+  {
+   "fieldname": "mandante",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Mandante",
+   "options": "Mandante",
+   "reqd": 1
+  },
+  {
+   "fieldname": "faena",
+   "fieldtype": "Data",
+   "label": "Faena"
+  },
+  {
+   "fieldname": "column_break_datos",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Borrador",
+   "fieldname": "estado",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Estado",
+   "options": "Borrador\nVigente\nTerminado\nCerrado"
+  },
+  {
+   "default": "Precios unitarios",
+   "fieldname": "modalidad",
+   "fieldtype": "Select",
+   "label": "Modalidad",
+   "options": "Precios unitarios\nSuma alzada\nTarifa por HH\nTarifa por equipo\nMixto"
+  },
+  {
+   "default": "CLP",
+   "fieldname": "moneda",
+   "fieldtype": "Select",
+   "label": "Moneda",
+   "options": "CLP\nUF\nUSD"
+  },
+  {
+   "fieldname": "administrador_mandante",
+   "fieldtype": "Data",
+   "label": "Administrador del contrato (mandante)"
+  },
+  {
+   "fieldname": "section_plazo",
+   "fieldtype": "Section Break",
+   "label": "Plazo"
+  },
+  {
+   "fieldname": "fecha_inicio",
+   "fieldtype": "Date",
+   "label": "Fecha de inicio",
+   "reqd": 1
+  },
+  {
+   "fieldname": "fecha_termino",
+   "fieldtype": "Date",
+   "label": "Fecha de t\u00e9rmino",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_plazo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "plazo_dias",
+   "fieldtype": "Int",
+   "label": "Plazo (d\u00edas corridos)",
+   "read_only": 1
+  },
+  {
+   "description": "Valores sugeridos; aj\u00fastelos seg\u00fan las bases de cada licitaci\u00f3n.",
+   "fieldname": "section_condiciones",
+   "fieldtype": "Section Break",
+   "label": "Condiciones del contrato"
+  },
+  {
+   "default": "5",
+   "fieldname": "porcentaje_retencion",
+   "fieldtype": "Percent",
+   "label": "Retenci\u00f3n por estado de pago (%)"
+  },
+  {
+   "default": "3",
+   "fieldname": "porcentaje_garantia",
+   "fieldtype": "Percent",
+   "label": "Garant\u00eda de fiel cumplimiento (%)"
+  },
+  {
+   "default": "10",
+   "fieldname": "tope_multas",
+   "fieldtype": "Percent",
+   "label": "Tope de multas (%)"
+  },
+  {
+   "fieldname": "column_break_condiciones",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Sin reajuste",
+   "fieldname": "reajuste",
+   "fieldtype": "Select",
+   "label": "Reajuste",
+   "options": "Sin reajuste\nIPC\nD\u00f3lar\nPolinomio"
+  },
+  {
+   "default": "5",
+   "fieldname": "dias_aprobacion_ep",
+   "fieldtype": "Int",
+   "label": "D\u00edas h\u00e1biles para aprobar el EP"
+  },
+  {
+   "fieldname": "section_itemizado",
+   "fieldtype": "Section Break",
+   "label": "Itemizado"
+  },
+  {
+   "fieldname": "partidas",
+   "fieldtype": "Table",
+   "label": "Partidas",
+   "options": "Partida de Contrato"
+  },
+  {
+   "bold": 1,
+   "fieldname": "monto_total",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Monto total del contrato",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_observaciones",
+   "fieldtype": "Section Break",
+   "label": "Observaciones"
+  },
+  {
+   "fieldname": "observaciones",
+   "fieldtype": "Small Text",
+   "label": "Observaciones"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-30 04:47:27.249952",
+ "modified_by": "Administrator",
+ "module": "Norte Contratista",
+ "name": "Contrato",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrador de Contratos",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "search_fields": "nombre_contrato,mandante",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "nombre_contrato",
+ "track_changes": 1
+}
