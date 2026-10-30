@@ -9,7 +9,7 @@ carpeta laboral, documentos con vencimiento, garantías y retenciones, y datos d
 | Entrega | Qué incluye | Estado |
 | --- | --- | --- |
 | 01 | Mandantes, contratos e itemizado, con validación de RUT y redondeo comercial | Lista para revisar |
-| 02 | Reporte diario de avance con fotos y horas-persona | Pendiente |
+| 02 | Reporte diario de avance con fotos y horas-persona | Especificación en borrador |
 | 03 | Estado de pago mensual con retención y PDF por mandante | Pendiente |
 
 Las especificaciones de cada entrega están en [`docs/specs/`](docs/specs/).
@@ -19,6 +19,8 @@ Para cargar un contrato con su itemizado desde Excel, use la plantilla
 ## Cómo trabajamos
 
 - **Claude** construye, **ChatGPT (Codex)** revisa, y **Miguel** aprueba. Las reglas que ambos siguen están en [`AGENTS.md`](AGENTS.md).
+- El estado del proyecto y el traspaso entre agentes están en [`docs/ESTADO.md`](docs/ESTADO.md).
+- El prompt para trabajar con ChatGPT está en [`docs/prompt-chatgpt.md`](docs/prompt-chatgpt.md).
 - Cada cambio llega como propuesta (pull request) con sus pruebas. Solo se acepta con las pruebas automáticas en verde.
 
 ## Para desarrolladores

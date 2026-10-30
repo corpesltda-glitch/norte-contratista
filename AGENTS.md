@@ -23,10 +23,19 @@ pruebas, capturas y la lista de revisión, no leyendo código.
 
 1. Cada tarea parte de una especificación en `docs/specs/` con criterios "Dado / Cuando / Entonces".
 2. Cada criterio tiene al menos un test en el archivo `test_*.py` del DocType que corresponda.
-3. Una tarea = una rama = una propuesta de cambio (pull request). **Nunca dos agentes trabajan en la misma rama.**
+3. Una tarea = una rama = una propuesta de cambio (pull request). **Nunca dos agentes trabajan en la misma rama al mismo tiempo.**
 4. Quien construye no aprueba su propio cambio: si Claude construye, Codex revisa, y al revés.
 5. Solo se hace merge con las pruebas automáticas (CI) en verde y la aprobación de Miguel.
 6. La descripción del PR incluye una tabla "criterio → test" y una nota en lenguaje simple para Miguel.
+
+## Traspaso entre Claude y Codex
+
+El trabajo tiene que poder seguir si uno de los dos se detiene (por ejemplo, porque se acabó su cuota de uso).
+
+1. **Al empezar:** leer `docs/ESTADO.md`. Si una tarea figura "En curso" a nombre del otro agente, no tocarla salvo que Miguel lo pida.
+2. **Al tomar una tarea:** anotar en `docs/ESTADO.md` la entrega, el agente y la rama, y subir ese cambio.
+3. **Al terminar o al detenerse:** actualizar `docs/ESTADO.md` (qué quedó hecho, qué falta, en qué archivo y prueba seguir) y subir todo a la rama, aunque esté incompleto. Si el trabajo no está terminado, el PR queda como borrador.
+4. **Para continuar una tarea del otro:** seguir en su misma rama, nunca al mismo tiempo que él, y anotar el cambio de dueño en la bitácora.
 
 ## Reglas del código
 
