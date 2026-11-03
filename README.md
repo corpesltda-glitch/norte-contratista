@@ -10,7 +10,7 @@ carpeta laboral, documentos con vencimiento, garantías y retenciones, y datos d
 | --- | --- | --- |
 | 01 | Mandantes, contratos e itemizado, con validación de RUT y redondeo comercial | Lista para revisar |
 | 02 | Reporte diario con avance por partida, personal, equipos, fotos y formato para firma del mandante | Lista para revisar |
-| 03 | Estado de pago mensual con retención y PDF por mandante | Pendiente |
+| 03 | Estado de pago mensual: avance por partida o porcentaje global, IVA, retención, aprobación del mandante y PDF para firma | Lista para revisar |
 
 Las especificaciones de cada entrega están en [`docs/specs/`](docs/specs/).
 Para cargar un contrato con su itemizado desde Excel, use la plantilla

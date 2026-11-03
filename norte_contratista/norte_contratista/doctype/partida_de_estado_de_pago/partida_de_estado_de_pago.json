@@ -1,0 +1,147 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_rename": 1,
+ "creation": "2026-11-03 08:37:14.048475",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item",
+  "descripcion",
+  "unidad",
+  "cantidad_contratada",
+  "precio_unitario",
+  "valor_contratado",
+  "column_break_anterior",
+  "cantidad_anterior",
+  "valor_anterior",
+  "cantidad_acumulada",
+  "valor_acumulado",
+  "porcentaje_acumulado",
+  "column_break_presente",
+  "cantidad_presente",
+  "valor_presente",
+  "porcentaje_presente"
+ ],
+ "fields": [
+  {
+   "columns": 1,
+   "fieldname": "item",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "\u00cdtem",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "descripcion",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Descripci\u00f3n",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "unidad",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Unidad",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cantidad_contratada",
+   "fieldtype": "Float",
+   "label": "Cantidad contratada",
+   "read_only": 1
+  },
+  {
+   "fieldname": "precio_unitario",
+   "fieldtype": "Currency",
+   "label": "Precio unitario",
+   "read_only": 1
+  },
+  {
+   "fieldname": "valor_contratado",
+   "fieldtype": "Currency",
+   "label": "Valor contratado",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_anterior",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cantidad_anterior",
+   "fieldtype": "Float",
+   "label": "Cantidad anterior",
+   "read_only": 1
+  },
+  {
+   "fieldname": "valor_anterior",
+   "fieldtype": "Currency",
+   "label": "Valor anterior",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "cantidad_acumulada",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Cantidad acumulada"
+  },
+  {
+   "fieldname": "valor_acumulado",
+   "fieldtype": "Currency",
+   "label": "Valor acumulado",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "porcentaje_acumulado",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "% acumulado",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_presente",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cantidad_presente",
+   "fieldtype": "Float",
+   "label": "Cantidad del per\u00edodo",
+   "read_only": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "valor_presente",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Valor del per\u00edodo",
+   "read_only": 1
+  },
+  {
+   "fieldname": "porcentaje_presente",
+   "fieldtype": "Percent",
+   "label": "% del per\u00edodo",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-11-03 08:37:14.048475",
+ "modified_by": "Administrator",
+ "module": "Norte Contratista",
+ "name": "Partida de Estado de Pago",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
