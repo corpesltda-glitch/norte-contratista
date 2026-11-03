@@ -4,10 +4,9 @@ Archivo de traspaso entre Claude y Codex. **Quien empieza una sesión lo lee pri
 
 ## Ahora
 
-- **En curso:** nada. Entregas 01 y 02 en revisión.
-- **Quién tiene la tarea:** nadie.
+- **En curso:** Entrega 03, estado de pago mensual, en la rama `entrega-03-estado-de-pago`.
+- **Quién tiene la tarea:** Claude.
 - **Revisión pendiente:** Entrega 01 (PR #1) y Entrega 02 (PR #9, que se aprueba después del #1).
-- **Siguiente:** Entrega 03, estado de pago mensual (issue #3). Falta su especificación; para escribirla sirve un EP real del piloto.
 
 ## Entregas del MVP
 
@@ -15,7 +14,7 @@ Archivo de traspaso entre Claude y Codex. **Quien empieza una sesión lo lee pri
 | --- | --- | --- | --- |
 | 01 | Mandantes, contratos e itemizado | En revisión | `entrega-01-contrato` / PR #1 |
 | 02 | Reporte diario con fotos, horas-persona y horas de equipo, firmado por el mandante | En revisión | `entrega-02-reporte-diario` / PR #9 |
-| 03 | Estado de pago mensual con retención, estados y PDF por mandante | Pendiente | — |
+| 03 | Estado de pago mensual con retención, estados y PDF por mandante | En curso (Claude) | `entrega-03-estado-de-pago` |
 | 04 | Carpeta laboral mensual (F30-1, cotizaciones, E-200) con semáforo en el EP | Pendiente | — |
 | 05 | Bóveda documental con vencimientos y avisos | Pendiente | — |
 | 06 | Garantías y retenciones (boletas y pólizas en UF, saldo retenido) | Pendiente | — |
@@ -31,8 +30,13 @@ Archivo de traspaso entre Claude y Codex. **Quien empieza una sesión lo lee pri
 - Licencia propietaria de Norte Inteligente SpA.
 - Al instalar, el sitio queda en formato chileno (es, dd-mm-yyyy, #.###,##, America/Santiago).
 - El personal del reporte diario se registra por cargo, no por trabajador (menos datos personales).
+- Los documentos reales de clientes nunca se suben al repositorio: solo su estructura.
 
 ## Bitácora (lo más reciente arriba)
+
+- **2026-11-03 · Claude:** con estados de pago y órdenes de facturación reales que entregó Miguel se escribió
+  `SPEC-03-estado-de-pago.md`, aprobada por Miguel; Claude toma la entrega. Los datos reales (mandantes,
+  contratos, personas y montos) no se guardan en el repositorio; las pruebas usan números inventados.
 
 - **2026-10-29 · Claude:** Codex revisó el PR #1 y encontró un P1: 1,15 × $50 daba $57 en vez de $58 por
   el punto flotante. Corregido con Decimal (`multiplicar` y `sumar` en `utils/montos.py`), con prueba nueva;
