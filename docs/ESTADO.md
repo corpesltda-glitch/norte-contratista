@@ -35,6 +35,13 @@ Archivo de traspaso entre Claude y Codex. **Quien empieza una sesión lo lee pri
 
 ## Bitácora (lo más reciente arriba)
 
+- **2026-11-03 · Claude:** Miguel pidió actualizar los años de las pruebas. Se corrieron las 64 pruebas
+  simulando las fechas 2028-06-15 y 2032-03-10 (y 2026-01-15 como control, donde fallan como se espera):
+  ninguna vence con el paso de los años. Se ajustó R3 en la Entrega 02 (PR #9): el contrato de prueba
+  termina a fin del próximo año y la prueba verifica el mensaje de fecha futura, para que no pase por
+  el motivo equivocado desde 2028. Para repetir la simulación: instalar `freezegun` en el entorno local
+  (no en la app) y correr las pruebas con `FECHA_SIMULADA=AAAA-MM-DD` y un `sitecustomize.py` que la active.
+
 - **2026-11-03 · Claude:** al generar el PDF con wkhtmltopdf (el motor de PDF de Frappe) se vio que no soporta
   flexbox: en el EP desaparecía el cuadro de montos y en el reporte diario la tabla de equipos. Ambos formatos
   pasan a tablas de dos columnas; E17 y R16 verifican que no se use flexbox. La corrección del reporte diario
