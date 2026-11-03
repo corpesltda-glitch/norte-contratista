@@ -9,6 +9,9 @@ from decimal import ROUND_HALF_UP, Decimal
 # Decimales por moneda: los pesos chilenos no llevan decimales.
 PRECISION_POR_MONEDA = {"CLP": 0, "UF": 2, "USD": 2}
 
+# Tasa del IVA en Chile (DL 825). Es ley, no condición del contrato: un solo lugar para cambiarla.
+TASA_IVA = Decimal("19")
+
 
 def precision_moneda(moneda: str | None) -> int:
 	return PRECISION_POR_MONEDA.get(moneda or "CLP", 2)
@@ -33,3 +36,8 @@ def multiplicar(cantidad, precio_unitario, precision: int) -> float:
 def sumar(valores, precision: int) -> float:
 	"""Suma montos sin errores de punto flotante y redondea el resultado."""
 	return redondear(sum((a_decimal(v) for v in valores), Decimal(0)), precision)
+
+
+def aplicar_tasa(monto, tasa, precision: int) -> float:
+	"""Monto por tasa dividido por 100, redondeado comercialmente (IVA, retención)."""
+	return redondear(a_decimal(monto) * a_decimal(tasa) / Decimal(100), precision)

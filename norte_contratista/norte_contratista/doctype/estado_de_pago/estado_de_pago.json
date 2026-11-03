@@ -1,0 +1,327 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_rename": 1,
+ "autoname": "EP-.YYYY.-.#####",
+ "creation": "2026-11-03 08:37:14.356929",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_datos",
+  "contrato",
+  "mandante",
+  "moneda",
+  "numero",
+  "column_break_datos",
+  "estado",
+  "periodo_desde",
+  "periodo_hasta",
+  "fecha_presentacion",
+  "section_avance",
+  "modo_avance",
+  "porcentaje_global",
+  "column_break_avance",
+  "traer_avance",
+  "partidas",
+  "section_resumen",
+  "total_contrato",
+  "total_anterior",
+  "total_acumulado",
+  "total_presente",
+  "column_break_resumen",
+  "descuentos",
+  "motivo_descuentos",
+  "neto",
+  "iva",
+  "total_factura",
+  "column_break_pago",
+  "porcentaje_retencion",
+  "retencion",
+  "liquido_a_pagar",
+  "section_aprobacion",
+  "monto_aprobado",
+  "fecha_aprobacion",
+  "diferencia_aprobado",
+  "column_break_aprobacion",
+  "motivo_diferencia",
+  "motivo_rechazo"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_datos",
+   "fieldtype": "Section Break",
+   "label": "Datos del estado de pago"
+  },
+  {
+   "fieldname": "contrato",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Contrato",
+   "options": "Contrato",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "contrato.mandante",
+   "fieldname": "mandante",
+   "fieldtype": "Link",
+   "label": "Mandante",
+   "options": "Mandante",
+   "read_only": 1
+  },
+  {
+   "fieldname": "moneda",
+   "fieldtype": "Data",
+   "label": "Moneda",
+   "read_only": 1
+  },
+  {
+   "fieldname": "numero",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "N\u00b0 de estado de pago",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_datos",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Borrador",
+   "fieldname": "estado",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Estado",
+   "options": "Borrador\nPresentado\nRechazado\nAprobado"
+  },
+  {
+   "fieldname": "periodo_desde",
+   "fieldtype": "Date",
+   "label": "Per\u00edodo desde",
+   "reqd": 1
+  },
+  {
+   "fieldname": "periodo_hasta",
+   "fieldtype": "Date",
+   "label": "Per\u00edodo hasta",
+   "reqd": 1
+  },
+  {
+   "fieldname": "fecha_presentacion",
+   "fieldtype": "Date",
+   "label": "Fecha de presentaci\u00f3n"
+  },
+  {
+   "fieldname": "section_avance",
+   "fieldtype": "Section Break",
+   "label": "Avance por partida"
+  },
+  {
+   "default": "Por cantidad",
+   "fieldname": "modo_avance",
+   "fieldtype": "Select",
+   "label": "C\u00f3mo se carga el avance",
+   "options": "Por cantidad\nPorcentaje global"
+  },
+  {
+   "depends_on": "eval:doc.modo_avance=='Porcentaje global'",
+   "fieldname": "porcentaje_global",
+   "fieldtype": "Percent",
+   "label": "Porcentaje de avance global"
+  },
+  {
+   "fieldname": "column_break_avance",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.modo_avance=='Por cantidad' && doc.estado=='Borrador' && !doc.__islocal",
+   "fieldname": "traer_avance",
+   "fieldtype": "Button",
+   "label": "Traer avance de reportes diarios firmados"
+  },
+  {
+   "fieldname": "partidas",
+   "fieldtype": "Table",
+   "label": "Partidas",
+   "options": "Partida de Estado de Pago"
+  },
+  {
+   "fieldname": "section_resumen",
+   "fieldtype": "Section Break",
+   "label": "Resumen"
+  },
+  {
+   "fieldname": "total_contrato",
+   "fieldtype": "Currency",
+   "label": "Monto del contrato",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_anterior",
+   "fieldtype": "Currency",
+   "label": "Acumulado al EP anterior",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_acumulado",
+   "fieldtype": "Currency",
+   "label": "Acumulado a la fecha",
+   "read_only": 1
+  },
+  {
+   "bold": 1,
+   "fieldname": "total_presente",
+   "fieldtype": "Currency",
+   "label": "Total del per\u00edodo",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_resumen",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "descuentos",
+   "fieldtype": "Currency",
+   "label": "Descuentos del per\u00edodo (multas u otros)"
+  },
+  {
+   "fieldname": "motivo_descuentos",
+   "fieldtype": "Small Text",
+   "label": "Motivo de los descuentos"
+  },
+  {
+   "bold": 1,
+   "fieldname": "neto",
+   "fieldtype": "Currency",
+   "label": "Neto del estado de pago",
+   "read_only": 1
+  },
+  {
+   "fieldname": "iva",
+   "fieldtype": "Currency",
+   "label": "IVA 19 %",
+   "read_only": 1
+  },
+  {
+   "bold": 1,
+   "fieldname": "total_factura",
+   "fieldtype": "Currency",
+   "label": "Total a facturar",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_pago",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "porcentaje_retencion",
+   "fieldtype": "Percent",
+   "label": "Retenci\u00f3n seg\u00fan contrato (%)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "retencion",
+   "fieldtype": "Currency",
+   "label": "Retenci\u00f3n del per\u00edodo",
+   "read_only": 1
+  },
+  {
+   "bold": 1,
+   "fieldname": "liquido_a_pagar",
+   "fieldtype": "Currency",
+   "label": "L\u00edquido a pagar",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_aprobacion",
+   "fieldtype": "Section Break",
+   "label": "Respuesta del mandante"
+  },
+  {
+   "fieldname": "monto_aprobado",
+   "fieldtype": "Currency",
+   "label": "Monto aprobado por el mandante (neto)"
+  },
+  {
+   "fieldname": "fecha_aprobacion",
+   "fieldtype": "Date",
+   "label": "Fecha de aprobaci\u00f3n"
+  },
+  {
+   "fieldname": "diferencia_aprobado",
+   "fieldtype": "Currency",
+   "label": "Diferencia aprobado \u2212 presentado",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_aprobacion",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "motivo_diferencia",
+   "fieldtype": "Small Text",
+   "label": "Motivo de la diferencia"
+  },
+  {
+   "fieldname": "motivo_rechazo",
+   "fieldtype": "Small Text",
+   "label": "Motivo del rechazo"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-11-03 08:37:14.356929",
+ "modified_by": "Administrator",
+ "module": "Norte Contratista",
+ "name": "Estado de Pago",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrador de Contratos",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Supervisor de Terreno",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "contrato",
+ "track_changes": 1
+}
