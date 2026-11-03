@@ -263,3 +263,6 @@ class IntegrationTestReporteDiario(IntegrationTestCase):
 		):
 			with self.subTest(texto=texto):
 				self.assertIn(texto, html)
+		# wkhtmltopdf (el PDF de Frappe) no soporta flexbox: la tabla de equipos desaparecería
+		formato = frappe.get_doc("Print Format", "Reporte Diario para Firma")
+		self.assertNotIn("flex", (formato.html or "") + (formato.css or ""))
