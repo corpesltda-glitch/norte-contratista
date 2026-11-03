@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\": \"h1\", \"type\": \"header\", \"data\": {\"text\": \"\\u003cspan class=\\\"h4\\\"\\u003e\\u003cb\\u003eNorte Contratista\\u003c/b\\u003e\\u003c/span\\u003e\", \"col\": 12}}, {\"id\": \"s1\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Contratos\", \"col\": 4}}, {\"id\": \"s2\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Mandantes\", \"col\": 4}}]",
+ "content": "[{\"id\": \"h1\", \"type\": \"header\", \"data\": {\"text\": \"\\u003cspan class=\\\"h4\\\"\\u003e\\u003cb\\u003eNorte Contratista\\u003c/b\\u003e\\u003c/span\\u003e\", \"col\": 12}}, {\"id\": \"s1\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Contratos\", \"col\": 4}}, {\"id\": \"s2\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Mandantes\", \"col\": 4}}, {\"id\": \"s3\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Reportes diarios\", \"col\": 4}}]",
  "creation": "2026-10-30 06:08:33.480003",
  "custom_blocks": [],
  "docstatus": 0,
@@ -13,7 +13,7 @@
  "label": "Norte Contratista",
  "link_type": "DocType",
  "links": [],
- "modified": "2026-10-30 06:08:44.205695",
+ "modified": "2026-10-30 06:34:35.807660",
  "modified_by": "Administrator",
  "module": "Norte Contratista",
  "name": "Norte Contratista",
@@ -34,6 +34,12 @@
    "doc_view": "List",
    "label": "Mandantes",
    "link_to": "Mandante",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Reportes diarios",
+   "link_to": "Reporte Diario",
    "type": "DocType"
   }
  ],
