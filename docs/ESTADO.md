@@ -35,6 +35,12 @@ Archivo de traspaso entre Claude y Codex. **Quien empieza una sesión lo lee pri
 
 ## Bitácora (lo más reciente arriba)
 
+- **2026-11-03 · Claude:** al generar el PDF con wkhtmltopdf (el motor de PDF de Frappe) se vio que no soporta
+  flexbox: en el EP desaparecía el cuadro de montos y en el reporte diario la tabla de equipos. Ambos formatos
+  pasan a tablas de dos columnas; E17 y R16 verifican que no se use flexbox. La corrección del reporte diario
+  está en `entrega-02-reporte-diario` (PR #9) y se trajo a esta rama. También se corrigió un falso positivo de
+  Semgrep (`test-is-missing-assert`) en las pruebas del EP.
+
 - **2026-11-03 · Claude:** Entrega 03 lista. Estado de Pago con partidas copiadas del itemizado, anterior
   = acumulado del último EP aprobado, avance por cantidad, por porcentaje global o traído de los reportes
   diarios firmados; resumen con descuentos, neto, IVA, factura, retención del contrato y líquido; estados
