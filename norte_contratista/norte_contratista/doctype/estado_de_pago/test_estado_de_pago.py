@@ -35,7 +35,8 @@ def nuevo_contrato(itemizado=ITEMIZADO, estado="Vigente", **campos):
 			**campos,
 		}
 	)
-	for item, descripcion, unidad, cantidad, precio in itemizado if estado == "Vigente" else []:
+	partidas = itemizado if estado == "Vigente" else []
+	for item, descripcion, unidad, cantidad, precio in partidas:
 		contrato.append(
 			"partidas",
 			{
@@ -288,3 +289,7 @@ class IntegrationTestEstadoDePago(IntegrationTestCase):
 		# Pesos chilenos sin decimales y hoja horizontal para que quepa el detalle
 		self.assertNotIn("1.500.000,00", html)
 		self.assertIn("size: A4 landscape", html)
+		self.assertIn("orientation: landscape", html)  # la orientación que lee el PDF de Frappe
+		# wkhtmltopdf (el PDF de Frappe) no soporta flexbox: el cuadro de montos desaparecería
+		formato = frappe.get_doc("Print Format", "Estado de Pago para Firma")
+		self.assertNotIn("flex", (formato.html or "") + (formato.css or ""))
