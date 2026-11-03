@@ -3,7 +3,7 @@
 
 import frappe
 from frappe.tests import IntegrationTestCase
-from frappe.utils import add_days, today
+from frappe.utils import add_days, getdate, today
 
 EXTRA_TEST_RECORD_DEPENDENCIES = []
 IGNORE_TEST_RECORD_DEPENDENCIES = []
@@ -34,7 +34,9 @@ def nuevo_contrato(estado="Vigente"):
 			"mandante": MANDANTE,
 			"faena": "Faena de prueba",
 			"fecha_inicio": "2026-01-01",
-			"fecha_termino": "2027-12-31",
+			# Termina a fin del próximo año: hoy y mañana siempre quedan dentro del plazo,
+			# así R3 prueba la fecha futura y no el plazo, corra el año que corra.
+			"fecha_termino": f"{getdate(today()).year + 1}-12-31",
 			"estado": estado,
 		}
 	)
@@ -84,7 +86,7 @@ class IntegrationTestReporteDiario(IntegrationTestCase):
 			nuevo_reporte(self.contrato, fecha="2025-12-31").insert()
 
 	def test_r3_fecha_futura(self):
-		with self.assertRaises(frappe.ValidationError):
+		with self.assertRaisesRegex(frappe.ValidationError, "no puede ser futura"):
 			nuevo_reporte(self.contrato, fecha=add_days(today(), 1)).insert()
 
 	def test_r4_reporte_repetido(self):
